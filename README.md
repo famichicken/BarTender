@@ -47,7 +47,7 @@
 - **SNS/コミュニティ**: 後回し（現スコープ外・将来）
 - **⚠️ 安全・法務（必須）**: 生年月日による年齢確認・未成年禁止・飲酒運転防止・ABV注意・過度飲酒の不助長・低/ノンアル導線
 
-> 🍸 **レシピデータは Codex に画像付きで作成依頼**します。引き渡し用ブリーフ → [`docs/CODEX_RECIPE_BRIEF.md`](docs/CODEX_RECIPE_BRIEF.md)、JSONスキーマ → [`docs/schema/recipe.schema.json`](docs/schema/recipe.schema.json)
+> 🍸 **レシピデータは Codex に画像付きで作成依頼**します。引き渡し用ブリーフ → [`docs/CODEX_RECIPE_BRIEF.md`](docs/CODEX_RECIPE_BRIEF.md)、貼り付け用プロンプト → [`docs/CODEX_PROMPT.md`](docs/CODEX_PROMPT.md)、JSONスキーマ → [`docs/schema/recipe.schema.json`](docs/schema/recipe.schema.json)。アプリ本体（`packages/shared` 等）の実装は**レシピ完成後**に着手。
 
 詳細は [`docs/SPEC.md`](docs/SPEC.md) を参照してください。
 

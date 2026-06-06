@@ -627,6 +627,6 @@ interface AgeVerification {
 
 ## 9. 次アクション
 1. 本仕様書のレビュー・合意（特に §8 未確定事項）。重要判断（BYOK / SNS後回し / 生年月日）は確定済み。
-2. **レシピデータは Codex に画像付きで作成依頼** → 引き渡し用ブリーフ `docs/CODEX_RECIPE_BRIEF.md` ＋ スキーマ `docs/schema/recipe.schema.json` を用意（§4.2の分類・100種以上・ja/en・ゆる版・画像要件を含む）。
-3. 合意後、`packages/shared`（型・判定エンジン・AIプロンプト雛形・BYOK/年齢確認）から実装着手。
+2. **レシピデータは Codex に画像付きで作成依頼**（先行）。引き渡し: `docs/CODEX_RECIPE_BRIEF.md` ＋ プロンプト `docs/CODEX_PROMPT.md` ＋ スキーマ `docs/schema/*.json` ＋ 見本 `docs/examples/sample-data.json`。出力 → `data/ingredients.json`・`data/recipes.json`・`assets/recipes/<id>/`。
+3. **レシピ完成後**に `packages/shared`（型・判定エンジン・AIプロンプト雛形・BYOK/年齢確認）から実装着手。
 4. P1（MVP）の画面・グラス遷移・安全要件（生年月日の年齢確認/ABV注意）の実装。
