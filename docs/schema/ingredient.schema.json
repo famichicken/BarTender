@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bartender.app/schema/ingredient.schema.json",
+  "title": "BarTender Ingredient",
+  "description": "材料カタログ1件。レシピは ingredientId でこれを参照する。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "category"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_]*$",
+      "description": "一意のスラッグ。例: gin, lime_juice, tonic_water"
+    },
+    "name": {
+      "type": "object",
+      "required": ["en"],
+      "additionalProperties": false,
+      "properties": {
+        "en": { "type": "string", "minLength": 1 },
+        "ja": { "type": "string" }
+      }
+    },
+    "category": {
+      "type": "string",
+      "enum": ["spirit", "liqueur", "mixer", "fruit", "bitters", "garnish", "other"]
+    },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "別名・表記ゆれ（検索/音声/認識用）。ja/en両方を含めてよい"
+    },
+    "isStaple": {
+      "type": "boolean",
+      "description": "常備品（既定ON）。例: water, ice, sugar"
+    },
+    "substitutes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "代替候補の ingredientId（判定の代替許容に使用）"
+    },
+    "barcodes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "JAN/EAN（任意・将来のバーコード認識用）"
+    }
+  }
+}

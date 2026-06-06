@@ -1,0 +1,102 @@
+{
+  "_comment": "Codex向けサンプル。recipe.schema.json / ingredient.schema.json に準拠した形式の見本。実データはこの形で ingredients.json と recipes.json に出力する。",
+  "ingredients": [
+    { "id": "gin", "name": { "en": "Gin", "ja": "ジン" }, "category": "spirit", "aliases": ["dry gin", "ドライジン"] },
+    { "id": "tonic_water", "name": { "en": "Tonic Water", "ja": "トニックウォーター" }, "category": "mixer", "aliases": ["tonic", "トニック"] },
+    { "id": "lime", "name": { "en": "Lime", "ja": "ライム" }, "category": "fruit", "substitutes": ["lemon"] },
+    { "id": "lemon", "name": { "en": "Lemon", "ja": "レモン" }, "category": "fruit" },
+    { "id": "lemon_juice", "name": { "en": "Lemon Juice", "ja": "レモン果汁" }, "category": "fruit", "aliases": ["ポッカレモン"] },
+    { "id": "simple_syrup", "name": { "en": "Simple Syrup", "ja": "シュガーシロップ" }, "category": "other", "substitutes": ["sugar"] },
+    { "id": "whisky", "name": { "en": "Whisky", "ja": "ウイスキー" }, "category": "spirit" },
+    { "id": "ice", "name": { "en": "Ice", "ja": "氷" }, "category": "other", "isStaple": true },
+    { "id": "egg_white", "name": { "en": "Egg White", "ja": "卵白" }, "category": "other" },
+    { "id": "sugar", "name": { "en": "Sugar", "ja": "砂糖" }, "category": "other", "isStaple": true }
+  ],
+  "recipes": [
+    {
+      "id": "gin_tonic",
+      "name": { "en": "Gin & Tonic", "ja": "ジントニック" },
+      "groups": ["gin"],
+      "flavors": ["refreshing", "dry"],
+      "strength": "medium",
+      "modeAdjustable": true,
+      "glass": "highball",
+      "method": "build",
+      "ingredients": [
+        { "ingredientId": "gin", "amount": 45, "unit": "ml" },
+        { "ingredientId": "tonic_water", "amount": 90, "unit": "ml" },
+        { "ingredientId": "lime", "amount": 1, "unit": "piece", "garnish": true },
+        { "ingredientId": "ice", "unit": "to_top" }
+      ],
+      "steps": [
+        { "en": "Fill a highball glass with ice.", "ja": "ハイボールグラスに氷を満たす。" },
+        { "en": "Pour in the gin.", "ja": "ジンを注ぐ。" },
+        { "en": "Top with tonic water.", "ja": "トニックウォーターで満たす。" },
+        { "en": "Stir gently and garnish with a lime wedge.", "ja": "軽く混ぜ、ライムを飾る。" }
+      ],
+      "casual": {
+        "name": { "en": "Easy Gin & Tonic", "ja": "ジントニック（ゆる版）" },
+        "visualSteps": [
+          { "en": "Ice to 60% of the glass.", "ja": "氷をグラスの6割まで。" },
+          { "en": "Gin up to the red line.", "ja": "ジンを赤線まで。" },
+          { "en": "Tonic up to the blue line.", "ja": "トニックを青線まで。" },
+          { "en": "Stir once, lime if you have it.", "ja": "1回混ぜる。ライムはあれば。" }
+        ],
+        "maxIngredients": 3,
+        "substitutions": [
+          { "ingredientId": "lime", "alternatives": ["lemon", "lemon_juice"], "note": { "en": "Lemon works too.", "ja": "レモンでもOK。" } }
+        ]
+      },
+      "estimatedAbv": 12,
+      "tags": ["classic", "easy", "summer", "aperitif"],
+      "image": {
+        "hero": "assets/recipes/gin_tonic/hero.webp",
+        "thumb": "assets/recipes/gin_tonic/thumb.webp",
+        "glassSilhouette": "assets/recipes/gin_tonic/glass.svg"
+      },
+      "source": "builtin"
+    },
+    {
+      "id": "whisky_sour",
+      "name": { "en": "Whisky Sour", "ja": "ウイスキーサワー" },
+      "groups": ["whisky", "sour"],
+      "flavors": ["sour_taste", "rich"],
+      "strength": "strong",
+      "modeAdjustable": true,
+      "glass": "rocks",
+      "method": "shake",
+      "ingredients": [
+        { "ingredientId": "whisky", "amount": 45, "unit": "ml" },
+        { "ingredientId": "lemon_juice", "amount": 20, "unit": "ml" },
+        { "ingredientId": "simple_syrup", "amount": 15, "unit": "ml" },
+        { "ingredientId": "egg_white", "amount": 1, "unit": "piece", "optional": true },
+        { "ingredientId": "ice", "unit": "to_top" }
+      ],
+      "steps": [
+        { "en": "Add whisky, lemon juice, syrup (and egg white) to a shaker.", "ja": "シェイカーにウイスキー・レモン果汁・シロップ（と卵白）を入れる。" },
+        { "en": "Add ice and shake well.", "ja": "氷を入れてよくシェイクする。" },
+        { "en": "Strain into a rocks glass over fresh ice.", "ja": "新しい氷を入れたロックグラスに注ぐ。" }
+      ],
+      "casual": {
+        "name": { "en": "Easy Whisky Sour", "ja": "ウイスキーサワー（ゆる版）" },
+        "visualSteps": [
+          { "en": "Whisky up to the red line.", "ja": "ウイスキーを赤線まで。" },
+          { "en": "A splash of lemon (yellow line).", "ja": "レモンを少し（黄線）。" },
+          { "en": "A little syrup, shake with ice.", "ja": "シロップ少し、氷とシェイク。" }
+        ],
+        "maxIngredients": 3,
+        "substitutions": [
+          { "ingredientId": "simple_syrup", "alternatives": ["sugar"], "note": { "en": "Sugar is fine.", "ja": "砂糖でもOK。" } }
+        ]
+      },
+      "estimatedAbv": 20,
+      "tags": ["classic", "intermediate", "digestif"],
+      "image": {
+        "hero": "assets/recipes/whisky_sour/hero.webp",
+        "thumb": "assets/recipes/whisky_sour/thumb.webp",
+        "glassSilhouette": "assets/recipes/whisky_sour/glass.svg"
+      },
+      "source": "builtin"
+    }
+  ]
+}
